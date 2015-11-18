@@ -1,4 +1,4 @@
-# blog
+# blog (en cours de développement)
 
 Essaie de creation de blog en React.js avec Flux/Fluxible pour le front, Socket.io pour les requêtes, Node.js / Express côté serveur et OrientDB pour la database.
 
