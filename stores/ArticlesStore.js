@@ -15,9 +15,23 @@ class ArticlesStore extends BaseStore {
 		return {articles: this.articles};
 	}
 
+	createArticle(payload) {
+		return {
+			commentCount: payload.commentCount,
+			postDate: payload.postDate,
+			mediaURL: payload.mediaURL,
+			content: payload.content,
+			title: payload.title,
+			autor: payload.autor,
+			id: payload.id
+		};
+	}
+
 	onReceiveArticles(payload) {
-		for (var i = 0, len = payload.length; i < 0; i++) {
-			if (this.articles.indexOf(payload[i]) === -1)
+		for (var i = 0, len = payload.length; i < len; i++) {
+			let article = this.createArticle(payload[i]);
+
+			if (this.articles.indexOf(article) === -1)
 				this.articles.push(payload[i]);
 		}
 		this.articles.sort((a, b) => {

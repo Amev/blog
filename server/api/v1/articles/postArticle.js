@@ -11,11 +11,14 @@ function postArticle(socket) {
 		else {
 			var	mediasURI = payload.mediaURI,
 				content = payload.content,
+				resume = payload.resume,
 				title = payload.title,
 				article = undefined,
 				decoded = undefined,
 				db = new DB();
 
+			resume = resume.slice(0, 50);
+			resume = resume[49] === '.' ? resume + '..' : resume + '...';
 			lib.verifyAdminToken(db.db, payload.token).then((result) => {
 				if (result.error === true) throw(result);
 				else if (!mediasURI || !content || !title)
@@ -24,6 +27,7 @@ function postArticle(socket) {
 				article = new Article({
 					mediasURI: mediasURI,
 					content: content,
+					resume: resume,
 					title: title
 				});
 				article.db = db.db;

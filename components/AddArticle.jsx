@@ -6,7 +6,7 @@ import ContentEditable from './ContentEditable.jsx';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-@connectToStores([AddArticleStore], (content) => {
+@connectToStores([AddArticleStore], (context) => {
 	return context.getStore(AddArticleStore).getState();
 })
 class AddArticle extends React.Component {

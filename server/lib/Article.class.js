@@ -8,6 +8,7 @@ class Article {
 			this.title = params.title;
 			this.autor = params.autor;
 			this.medias = params.medias;
+			this.resume = params.resume;
 			this.content = params.content;
 			this.mediaURL = params.mediaURL || '';
 			this.commentCount = params.commentCount || 0;
@@ -51,6 +52,7 @@ class Article {
 		.set({
 			postDate: this.postDate,
 			content: this.content,
+			resume: this.resume,
 			title: this.title
 		}).one();
 	}
@@ -125,6 +127,7 @@ class Article {
 			postDate: this.postDate,
 			mediaURL: this.mediaURL,
 			content: this.content,
+			resume: this.resume,
 			title: this.title,
 			autor: this.autor,
 			id: this.id

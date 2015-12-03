@@ -1,5 +1,11 @@
+import {connectToStores} from 'fluxible-addons-react';
+import ArticlesStore from '../stores/ArticlesStore';
+import Resume from './Resume.jsx';
 import React from 'react';
 
+@connectToStores([ArticlesStore], (context) => {
+	return context.getStore(ArticlesStore).getState();
+})
 class Articles extends React.Component {
 
 	static contextTypes = {
@@ -12,7 +18,16 @@ class Articles extends React.Component {
 	}
 
 	render() {
-		return <p>This is Articles</p>;
+		let	articles = this.props.articles, resumes = '';
+
+		resumes = articles.map((article) => {
+			return <Resume article={article} key={article.id} />;
+		});
+		return (
+			<div className="resumeList">
+				{resumes}
+			</div>
+		);
 	}
 }
 

@@ -5,7 +5,6 @@ function getArticlesAction(context, payload) {
 
 	return new Promise((resolve, reject) => {
 		socket.emit('getArticles', {}, (response) => {
-			console.log(response);
 			if (response.error === true) reject(response);
 			context.dispatch('FETCH_ARTICLES_ACTION', response);
 			resolve();
