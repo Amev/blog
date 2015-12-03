@@ -1,4 +1,5 @@
 import changeArticleAction from '../actions/changeArticleContentAction';
+import addArticleAction from '../actions/addArticleAction';
 import AddArticleStore from '../stores/AddArticleStore';
 import {connectToStores} from 'fluxible-addons-react';
 import ContentEditable from './ContentEditable.jsx';
@@ -62,8 +63,7 @@ class AddArticle extends React.Component {
 		if (article.title && article.content && file) {
 			reader.onload = (fileData) => {
 				article.mediaURI = fileData.target.result;
-				console.log(article);
-				//this.context.executeAction(addArticleAction, article);
+				this.context.executeAction(addArticleAction, article);
 			};
 			reader.readAsDataURL(file);
 		} else console.log('Missing some data');

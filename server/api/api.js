@@ -5,7 +5,6 @@ import postAuth from './v1/auth/postAuth';
 import getAdmin from './v1/auth/getAdmin';
 
 function socketAPI(socket) {
-	console.log('connection');
 	// Articles
 	postArticles(socket);
 	getArticles(socket);

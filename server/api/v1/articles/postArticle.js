@@ -9,7 +9,7 @@ function postArticle(socket) {
 		if (!payload || !payload.token)
 			done(lib.newError(400, 'No payload provided'));
 		else {
-			var	mediasURI = payload.mediasURI,
+			var	mediasURI = payload.mediaURI,
 				content = payload.content,
 				title = payload.title,
 				article = undefined,
@@ -30,7 +30,7 @@ function postArticle(socket) {
 				return article.postArticleDB();
 			}).then((response) => {
 				article.rid = response['@rid'].toString();
-				return article.postAutorLink(decoded.rid);
+				return article.postAutorEdge(decoded.rid);
 			}).then(() => {
 				return article.putData();
 			}).then(() => {

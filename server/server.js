@@ -21,6 +21,8 @@ var component = React.createFactory(HtmlComponent);
 server.use(compression());
 server.use(favicon(__dirname + '/../app/favicon.ico'));
 server.use(express.static('./'));
+server.use(express.static('./build/'));
+server.use(express.static('./medias/'));
 server.set('port', config.port || 3000);
 
 var io = new SocketIO(serverIO);
