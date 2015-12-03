@@ -32,7 +32,7 @@ Une fois les fichiers créés, pour mettre le serveur en route (sans Docker), ru
 
 ```
 npm install
-gulp
+gulp babel
 npm start
 ```
 
